@@ -339,7 +339,6 @@
         <header>
             <h1><i class="fas fa-truck-loading"></i> Tipper Availability Dashboard</h1>
             <div class="date-display" id="currentDate"></div>
-            <p class="subtitle">Real-time monitoring of tipper status, trips, and availability</p>
         </header>
         
         <div class="dashboard-stats">
@@ -387,33 +386,21 @@
         <div class="availability-legend">
             <div class="legend-item">
                 <div class="legend-color status-green"></div>
-                <span>Available</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color status-red"></div>
-                <span>Unavailable</span>
             </div>
             <div class="legend-item">
                 <div style="background-color: #fff3cd; width: 20px; height: 20px; border-radius: 4px; margin-right: 8px;"></div>
-                <span>Day Absent Remark</span>
             </div>
             <div class="legend-item">
                 <div style="background-color: #d1ecf1; width: 20px; height: 20px; border-radius: 4px; margin-right: 8px;"></div>
-                <span>Night Absent Remark</span>
             </div>
         </div>
         
         <div class="controls">
-            <div class="filter-options">
-                <button class="filter-btn active" data-filter="all">All Tippers</button>
-                <button class="filter-btn" data-filter="day-available">Day Available</button>
-                <button class="filter-btn" data-filter="night-available">Night Available</button>
-                <button class="filter-btn" data-filter="fully-available">Fully Available</button>
-                <button class="filter-btn" data-filter="unavailable">Unavailable</button>
-                <button class="filter-btn" data-filter="with-remark">With Remarks</button>
-            </div>
             
-            <input type="text" class="search-box" id="searchInput" placeholder="Search by Tipper ID or Remark...">
+            
         </div>
         
         <div class="table-container">
