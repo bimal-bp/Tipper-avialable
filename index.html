@@ -422,9 +422,9 @@
                     <tr>
                         <th>Tipper ID</th>
                         <th>Day/Night Availability</th>
-                        <th>FTD Trips</th>
                         <th>MTD Available (Day/Night)</th>
                         <th>Absent Remark (Day/Night)</th>
+                        <th>FTD Trips</th>
                         <th>Total Trips</th>
                     </tr>
                 </thead>
@@ -441,20 +441,20 @@
     </div>
     
     <script>
-        // Tipper data with FTD trips, MTD availability, and proper day/night absent remarks
+        // Tipper data with the specified IDs and column sequence
         const tippers = [
-            { id: "TIP001", dayAvailable: true, nightAvailable: true, ftdTrips: 18, totalTrips: 142, mtdDayAvailable: 14, mtdNightAvailable: 12, dayAbsentRemark: "", nightAbsentRemark: "" },
-            { id: "TIP002", dayAvailable: false, nightAvailable: false, ftdTrips: 22, totalTrips: 178, mtdDayAvailable: 16, mtdNightAvailable: 14, dayAbsentRemark: "Breakdown", nightAbsentRemark: "Breakdown" },
-            { id: "TIP003", dayAvailable: true, nightAvailable: true, ftdTrips: 15, totalTrips: 115, mtdDayAvailable: 11, mtdNightAvailable: 9, dayAbsentRemark: "", nightAbsentRemark: "" },
-            { id: "TIP004", dayAvailable: true, nightAvailable: true, ftdTrips: 25, totalTrips: 201, mtdDayAvailable: 18, mtdNightAvailable: 16, dayAbsentRemark: "", nightAbsentRemark: "" },
-            { id: "TIP005", dayAvailable: false, nightAvailable: false, ftdTrips: 12, totalTrips: 98, mtdDayAvailable: 10, mtdNightAvailable: 8, dayAbsentRemark: "Maintenance", nightAbsentRemark: "Maintenance" },
-            { id: "TIP006", dayAvailable: true, nightAvailable: false, ftdTrips: 20, totalTrips: 165, mtdDayAvailable: 14, mtdNightAvailable: 12, dayAbsentRemark: "", nightAbsentRemark: "Driver Leave" },
-            { id: "TIP007", dayAvailable: true, nightAvailable: true, ftdTrips: 23, totalTrips: 189, mtdDayAvailable: 17, mtdNightAvailable: 15, dayAbsentRemark: "", nightAbsentRemark: "" },
-            { id: "TIP008", dayAvailable: false, nightAvailable: false, ftdTrips: 19, totalTrips: 152, mtdDayAvailable: 15, mtdNightAvailable: 13, dayAbsentRemark: "Repair", nightAbsentRemark: "Repair" },
-            { id: "TIP009", dayAvailable: true, nightAvailable: true, ftdTrips: 21, totalTrips: 172, mtdDayAvailable: 13, mtdNightAvailable: 11, dayAbsentRemark: "", nightAbsentRemark: "" },
-            { id: "TIP010", dayAvailable: true, nightAvailable: true, ftdTrips: 16, totalTrips: 134, mtdDayAvailable: 12, mtdNightAvailable: 10, dayAbsentRemark: "", nightAbsentRemark: "" },
-            { id: "TIP011", dayAvailable: false, nightAvailable: false, ftdTrips: 24, totalTrips: 196, mtdDayAvailable: 17, mtdNightAvailable: 15, dayAbsentRemark: "Servicing", nightAbsentRemark: "Servicing" },
-            { id: "TIP012", dayAvailable: true, nightAvailable: false, ftdTrips: 14, totalTrips: 128, mtdDayAvailable: 11, mtdNightAvailable: 9, dayAbsentRemark: "", nightAbsentRemark: "Tire Change" }
+            { id: "AP39UQ0095", dayAvailable: true, nightAvailable: true, ftdTrips: 18, totalTrips: 142, mtdDayAvailable: 14, mtdNightAvailable: 12, dayAbsentRemark: "", nightAbsentRemark: "" },
+            { id: "AP39UQ0097", dayAvailable: false, nightAvailable: false, ftdTrips: 22, totalTrips: 178, mtdDayAvailable: 16, mtdNightAvailable: 14, dayAbsentRemark: "Breakdown", nightAbsentRemark: "Breakdown" },
+            { id: "AP39UW9880", dayAvailable: true, nightAvailable: true, ftdTrips: 15, totalTrips: 115, mtdDayAvailable: 11, mtdNightAvailable: 9, dayAbsentRemark: "", nightAbsentRemark: "" },
+            { id: "AP39UW9881", dayAvailable: true, nightAvailable: true, ftdTrips: 25, totalTrips: 201, mtdDayAvailable: 18, mtdNightAvailable: 16, dayAbsentRemark: "", nightAbsentRemark: "" },
+            { id: "AP39UY4651", dayAvailable: false, nightAvailable: false, ftdTrips: 12, totalTrips: 98, mtdDayAvailable: 10, mtdNightAvailable: 8, dayAbsentRemark: "Maintenance", nightAbsentRemark: "Maintenance" },
+            { id: "AP39UY4652", dayAvailable: true, nightAvailable: false, ftdTrips: 20, totalTrips: 165, mtdDayAvailable: 14, mtdNightAvailable: 12, dayAbsentRemark: "", nightAbsentRemark: "Driver Leave" },
+            { id: "AP39WC0926", dayAvailable: true, nightAvailable: true, ftdTrips: 23, totalTrips: 189, mtdDayAvailable: 17, mtdNightAvailable: 15, dayAbsentRemark: "", nightAbsentRemark: "" },
+            { id: "AP39WC0927", dayAvailable: false, nightAvailable: false, ftdTrips: 19, totalTrips: 152, mtdDayAvailable: 15, mtdNightAvailable: 13, dayAbsentRemark: "Repair", nightAbsentRemark: "Repair" },
+            { id: "AP39WC0928", dayAvailable: true, nightAvailable: true, ftdTrips: 21, totalTrips: 172, mtdDayAvailable: 13, mtdNightAvailable: 11, dayAbsentRemark: "", nightAbsentRemark: "" },
+            { id: "AP39WF2052", dayAvailable: true, nightAvailable: true, ftdTrips: 16, totalTrips: 134, mtdDayAvailable: 12, mtdNightAvailable: 10, dayAbsentRemark: "", nightAbsentRemark: "" },
+            { id: "AP39WF2057", dayAvailable: false, nightAvailable: false, ftdTrips: 24, totalTrips: 196, mtdDayAvailable: 17, mtdNightAvailable: 15, dayAbsentRemark: "Servicing", nightAbsentRemark: "Servicing" },
+            { id: "AP39WF2058", dayAvailable: true, nightAvailable: false, ftdTrips: 14, totalTrips: 128, mtdDayAvailable: 11, mtdNightAvailable: 9, dayAbsentRemark: "", nightAbsentRemark: "Tire Change" }
         ];
         
         // DOM elements
@@ -513,7 +513,7 @@
                     </div>`;
         }
         
-        // Format MTD availability display (without red color marks)
+        // Format MTD availability display
         function formatMTDAvailability(mtdDay, mtdNight) {
             return `
                 <div class="mtd-availability">
@@ -561,13 +561,13 @@
                             <div class="status-dot ${nightStatusClass}" title="Night: ${tipper.nightAvailable ? 'Available' : 'Unavailable'}">N</div>
                         </div>
                     </td>
-                    <td class="trip-count">${tipper.ftdTrips}</td>
                     <td>
                         ${formatMTDAvailability(tipper.mtdDayAvailable, tipper.mtdNightAvailable)}
                     </td>
                     <td class="absent-remark">
                         ${formatAbsentRemarks(tipper.dayAbsentRemark, tipper.nightAbsentRemark)}
                     </td>
+                    <td class="trip-count">${tipper.ftdTrips}</td>
                     <td class="trip-count">${tipper.totalTrips}</td>
                 `;
                 
