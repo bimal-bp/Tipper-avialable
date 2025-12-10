@@ -31,7 +31,7 @@
         }
         
         .header-content {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         h1 {
@@ -44,61 +44,60 @@
             color: #3498db;
             font-size: 1.1rem;
             font-weight: 500;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
         
-        .shift-managers-container {
+        .managers-row {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .shift-managers {
-            display: flex;
+            align-items: center;
             background: linear-gradient(135deg, #2c3e50, #4a6491);
             color: white;
             border-radius: 12px;
-            padding: 15px 25px;
+            padding: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            align-items: center;
-            gap: 25px;
-            min-width: 500px;
-            max-width: 700px;
+            margin: 0 auto;
+            max-width: 600px;
         }
         
-        .shift-managers i {
-            font-size: 1.8rem;
-            color: #3498db;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 50%;
-        }
-        
-        .shift-managers-content {
-            flex: 1;
-        }
-        
-        .shift-managers-title {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .shift-managers-list {
-            display: flex;
-            gap: 15px;
-            font-size: 1.05rem;
+        .managers-label {
             font-weight: 600;
+            font-size: 1rem;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .managers-label i {
+            color: #3498db;
+        }
+        
+        .managers-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex: 1;
         }
         
         .manager-item {
             display: flex;
             align-items: center;
-            gap: 5px;
-            padding: 5px 12px;
+            gap: 8px;
+            padding: 6px 15px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
+            min-width: 120px;
+            justify-content: center;
+        }
+        
+        .manager-name {
+            font-weight: 600;
+            font-size: 1.05rem;
         }
         
         .day-shift {
@@ -153,46 +152,13 @@
             font-size: 0.95rem;
         }
         
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .filter-options {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 20px;
-            background: #ecf0f1;
-            color: #2c3e50;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active {
-            background: #3498db;
-            color: white;
-        }
-        
-        .filter-btn:hover:not(.active) {
-            background: #d5dbdb;
-        }
-        
         .search-box {
             padding: 10px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            width: 250px;
+            width: 300px;
+            margin: 0 auto 20px;
+            display: block;
         }
         
         .table-container {
@@ -344,17 +310,6 @@
             }
         }
         
-        @media (max-width: 992px) {
-            .controls {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .search-box {
-                width: 100%;
-            }
-        }
-        
         @media (max-width: 768px) {
             .dashboard-stats {
                 grid-template-columns: 1fr 1fr;
@@ -365,21 +320,28 @@
                 font-size: 0.9rem;
             }
             
-            .shift-managers {
-                min-width: auto;
+            .managers-row {
                 flex-direction: column;
-                gap: 15px;
-                padding: 15px;
+                gap: 10px;
+                padding: 15px 10px;
             }
             
-            .shift-managers-list {
-                flex-direction: column;
-                gap: 8px;
-                width: 100%;
+            .managers-label {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .managers-list {
+                gap: 10px;
             }
             
             .manager-item {
-                justify-content: center;
+                min-width: 100px;
+                padding: 5px 10px;
+            }
+            
+            .search-box {
+                width: 100%;
             }
         }
         
@@ -390,6 +352,17 @@
             
             h1 {
                 font-size: 1.8rem;
+            }
+            
+            .managers-list {
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+            }
+            
+            .manager-item {
+                width: 100%;
+                min-width: auto;
             }
         }
     </style>
@@ -402,25 +375,23 @@
                 <div class="date-display" id="currentDate"></div>
             </div>
             
-            <div class="shift-managers-container">
-                <div class="shift-managers">
+            <div class="managers-row">
+                <div class="managers-label">
                     <i class="fas fa-users-cog"></i>
-                    <div class="shift-managers-content">
-                        <div class="shift-managers-title">ON DUTY MANAGERS</div>
-                        <div class="shift-managers-list">
-                            <div class="manager-item">
-                                <span>Lokanath</span>
-                                <i class="fas fa-sun day-shift"></i>
-                            </div>
-                            <div class="manager-item">
-                                <span>Amit</span>
-                                <i class="fas fa-sun day-shift"></i>
-                            </div>
-                            <div class="manager-item">
-                                <span>Ravi</span>
-                                <i class="fas fa-moon night-shift"></i>
-                            </div>
-                        </div>
+                    ON DUTY MANAGERS
+                </div>
+                <div class="managers-list">
+                    <div class="manager-item">
+                        <span class="manager-name">Lokanath</span>
+                        <i class="fas fa-sun day-shift"></i>
+                    </div>
+                    <div class="manager-item">
+                        <span class="manager-name">Amit</span>
+                        <i class="fas fa-sun day-shift"></i>
+                    </div>
+                    <div class="manager-item">
+                        <span class="manager-name">Ravi</span>
+                        <i class="fas fa-moon night-shift"></i>
                     </div>
                 </div>
             </div>
@@ -468,17 +439,7 @@
             </div>
         </div>
         
-        <div class="controls">
-            <div class="filter-options">
-                <button class="filter-btn active" data-filter="all">All Tippers</button>
-                <button class="filter-btn" data-filter="fully-available">Fully Available</button>
-                <button class="filter-btn" data-filter="day-available">Day Available</button>
-                <button class="filter-btn" data-filter="night-available">Night Available</button>
-                <button class="filter-btn" data-filter="unavailable">Unavailable</button>
-                <button class="filter-btn" data-filter="with-remark">With Remarks</button>
-            </div>
-            <input type="text" class="search-box" id="searchInput" placeholder="Search by ID or remark...">
-        </div>
+        <input type="text" class="search-box" id="searchInput" placeholder="Search by Tipper ID or remark...">
         
         <div class="table-container">
             <table id="tippersTable">
@@ -500,7 +461,7 @@
         
         <div class="footer">
             <p>Dashboard updated in real-time | Last updated: <span id="currentTime"></span></p>
-            <p>Use filters to view specific availability statuses | Hover over remarks for details</p>
+            <p>Hover over remarks for details</p>
         </div>
     </div>
     
@@ -523,7 +484,6 @@
         
         // DOM elements
         const tableBody = document.getElementById('tableBody');
-        const filterButtons = document.querySelectorAll('.filter-btn');
         const searchInput = document.getElementById('searchInput');
         const currentTimeElement = document.getElementById('currentTime');
         const currentDateElement = document.getElementById('currentDate');
@@ -587,17 +547,10 @@
         }
         
         // Render table rows
-        function renderTable(filter = 'all', searchTerm = '') {
+        function renderTable(searchTerm = '') {
             tableBody.innerHTML = '';
             
             const filteredTippers = tippers.filter(tipper => {
-                // Apply filter
-                if (filter === 'day-available' && !tipper.dayAvailable) return false;
-                if (filter === 'night-available' && !tipper.nightAvailable) return false;
-                if (filter === 'fully-available' && !(tipper.dayAvailable && tipper.nightAvailable)) return false;
-                if (filter === 'unavailable' && (tipper.dayAvailable || tipper.nightAvailable)) return false;
-                if (filter === 'with-remark' && !tipper.dayAbsentRemark && !tipper.nightAbsentRemark) return false;
-                
                 // Apply search
                 if (searchTerm) {
                     const term = searchTerm.toLowerCase();
@@ -664,29 +617,9 @@
         
         // Initialize event listeners
         function initEventListeners() {
-            // Filter button click events
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Get filter type
-                    const filter = this.getAttribute('data-filter');
-                    
-                    // Render table with selected filter
-                    renderTable(filter, searchInput.value);
-                });
-            });
-            
             // Search input event
             searchInput.addEventListener('input', function() {
-                const activeFilter = document.querySelector('.filter-btn.active');
-                const filter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
-                
-                renderTable(filter, this.value);
+                renderTable(this.value);
             });
         }
         
